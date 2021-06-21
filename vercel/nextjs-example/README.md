@@ -1,6 +1,6 @@
 
 # Vercel + Planetscale
-A [next.js](https://nextjs.org/) app deployed to [vercel](https://vercel.com) with a [planetscale](https://planetscale.com) integration
+A [next.js](https://nextjs.org/) app deployed to [vercel](https://vercel.com) with a [planetscale](https://planetscale.com) integration. This example app uses the [planetscale-node](https://github.com/planetscale/planetscale-node) client to query the database
 
 ## Setup database
 - Install [Planetscale CLI](https://planetscale.com/cli)
