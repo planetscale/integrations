@@ -1,34 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Vercel + Planetscale
+A [next.js](https://nextjs.org/) app deployed to [vercel](https://vercel.com) with a [planetscale](https://planetscale.com) integration
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+## Setup database
+- Install [Planetscale CLI](https://planetscale.com/cli)
+- Authenticate the CLI
+```sh
+pscale auth login
+```
+- Create a new database
+```sh
+pscale database create your-db-name
+```
+- Connect to your database 
+```sh
+pscale shell your-org-name your-db-name
+```
+- Insert example tables
+```sql
+CREATE TABLE Users (
+  id int NOT NULL AUTO_INCREMENT,
+  email varchar(255) NOT NULL,
+  password varchar(255) NOT NULL,
+  name varchar(255),
+);
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy to vercel
+- Clone the repository
+```
+git clone https://github.com/planetscale/integrations/nextjs-example.git
+```
+- [Deploy to Vercel](https://vercel.com/guides/deploying-nextjs-with-vercel)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Install integration
+- Select the integration from the marketplace and link it with the Vercel project(s).
+- The integration will automatically add the following environment variables to your Vercel project(s)
+  - `PLANETSCALE_DB`
+  - `PLANETSCALE_ORG`
+  - `PLANETSCALE_TOKEN`
+  - `PLANETSCALE_TOKEN_NAME` 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+_These environment variables are used by [planetscale-node](https://github.com/planetscale/planetscale-node) client to connect to your database_
+- Re-deploy your application after the installation is complete and you will have a working app.
