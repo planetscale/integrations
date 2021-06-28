@@ -27,11 +27,7 @@ CREATE TABLE Users (
 ```
 
 ## Deploy to vercel
-- Clone the repository
-```
-git clone https://github.com/planetscale/integrations/nextjs-example.git
-```
-- [Deploy to Vercel](https://vercel.com/guides/deploying-nextjs-with-vercel)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fplanetscale%2Fvercel-next-js&project-name=planetscale-next-js&repository-name=planetscale-next-js&integration-ids=oac_ni8CGiTU3oM25q1k2L6unVMp)
 
 
 ## Install integration
